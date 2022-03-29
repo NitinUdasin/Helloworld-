@@ -9,6 +9,6 @@ gci $Env:BUILD_SOURCESDIRECTORY
 Write-Host "Over and out."
 
 $source = "http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-windows-i586.exe"
-$destination = "C:\Download\Java\jdk-7u60-windows-i586.exe"
+$destination = $Env:BUILD_SOURCESDIRECTORY+ "\jdk-7u60-windows-i586.exe"
 $client = new-object System.Net.WebClient
 $client.DownloadFile($source, $destination)
