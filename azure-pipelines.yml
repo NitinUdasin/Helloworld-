@@ -3,6 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+- name: image
+  displayName: Pool Image
+  type: string
+  default: ubuntu-latest
+  values:
+  - nitin udasin
 trigger:
 - main
 
@@ -10,8 +17,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, "$UserName"!
+- script: echo Hello,  ${{ parameters.image }}!
   displayName: 'Run a one-line script'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
