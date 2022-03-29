@@ -21,13 +21,11 @@ steps:
 - script: echo Hello,  $(userName1)!
   displayName: 'Run a one-line script'
 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: my-arm-service-connection
-    scriptType: filePath
-    scriptPath: $(Build.SourcesDirectory)\test.ps1    
-    azurePowerShellVersion: latestVersion
-    pwsh: true
+- task: PowerShell@2
+  inputs:    
+    targetType: filePath
+    filePath: $(Build.SourcesDirectory)\test.ps1        
+    
   
 
 - script: |
