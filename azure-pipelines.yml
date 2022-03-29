@@ -10,6 +10,7 @@ parameters:
   default: ubuntu-latest
   values:
   - nitin udasin
+  - 
 trigger:
 - main
 
@@ -17,7 +18,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello,  "$userName"!
+- script: echo Hello,  %USERNAME%!
   displayName: 'Run a one-line script'
 
 
