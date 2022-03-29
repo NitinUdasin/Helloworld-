@@ -21,6 +21,14 @@ steps:
 - script: echo Hello,  $(userName1)!
   displayName: 'Run a one-line script'
 
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: my-arm-service-connection
+    scriptType: filePath
+    scriptPath: $(Build.SourcesDirectory)\test.ps1    
+    azurePowerShellVersion: latestVersion
+    pwsh: true
+  
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
