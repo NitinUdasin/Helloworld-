@@ -10,7 +10,7 @@ parameters:
   default: ubuntu-latest
   values:
   - nitin udasin
-  - 
+  - Ashoo
 trigger:
 - main
 
