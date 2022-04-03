@@ -15,7 +15,7 @@ trigger:
 - main
 
 pool:
-  vmImage: $image
+  vmImage: $(image)
 
 steps:
 - script: echo Hello,  $(userName1)!
