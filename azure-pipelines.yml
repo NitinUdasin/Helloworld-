@@ -5,17 +5,17 @@
 
 parameters:
 - name: image
-  displayName: Pool Image
+  displayName: PoolImage
   type: string
   default: ubuntu-latest
   values:
-  - nitin udasin
-  - Ashoo
+  - windows-2022
+  - ubuntu-latest
 trigger:
 - main
 
 pool:
-  vmImage: windows-2022
+  vmImage: $(PoolImage)
 
 steps:
 - script: echo Hello,  $(userName1)!
