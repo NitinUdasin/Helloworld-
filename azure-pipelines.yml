@@ -23,7 +23,11 @@ jobs:
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh", "bash CreatedIndex.sh"]}'
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-018f5a57a80b12dbf'
-      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh", "sudo bash CreatedIndex.sh"]}'
+      notificationEvents: 'success'
+      notificationType: 'command'
+      logRequest: true
+      logResponse: true
