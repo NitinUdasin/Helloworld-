@@ -34,11 +34,13 @@ jobs:
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       documentParameters: '{"commands":["md C:\\WEB"]}'
-  - task: PowerShellOnTargetMachines@3
+  - task: SystemsManagerRunCommand@1
     inputs:
-      Machines: 'ec2-52-201-238-255.compute-1.amazonaws.com'
-      UserName: 'Administrator'
-      UserPassword: 'rIZ)h28$7co7wb!ZQR$YU3McqH!NY*cD'
-      ScriptType: 'FilePath'
-      ScriptPath: 'c:\\web\\test.ps1'
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunPowerShellScript'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web]}'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-0f9b9ebd2bd80c22a'
+      logRequest: true
+      logResponse: true
 
