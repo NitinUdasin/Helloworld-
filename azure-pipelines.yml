@@ -43,11 +43,11 @@ jobs:
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       logRequest: true
       logResponse: true
-  - task: PowerShellOnTargetMachines@3
+  - task: SystemsManagerRunCommand@1
     inputs:
-      Machines: '52.201.238.255'
-      UserName: 'SRPUN05ADVM02\Administrator'
-      UserPassword: 'rIZ)h28$7co7wb!ZQR$YU3McqH!NY*cD'
-      ScriptType: 'FilePath'
-      ScriptPath: 'c:\\web\\test.ps1'
-
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunShellScript'
+      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-018f5a57a80b12dbf'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh | bash CreatedIndex.sh"]}'
