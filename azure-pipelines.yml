@@ -34,7 +34,11 @@ jobs:
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       documentParameters: '{"commands":["md C:\\WEB"]}'
-  - task: PowerShell@2
+  - task: PowerShellOnTargetMachines@3
     inputs:
-      filePath: 'c:\\web\test.ps1'
+      Machines: 'ec2-52-201-238-255.compute-1.amazonaws.com'
+      UserName: 'Administrator'
+      UserPassword: 'rIZ)h28$7co7wb!ZQR$YU3McqH!NY*cD'
+      ScriptType: 'FilePath'
+      ScriptPath: 'c:\\web\\test.ps1'
 
