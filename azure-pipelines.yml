@@ -25,5 +25,5 @@ jobs:
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-018f5a57a80b12dbf'
-      documentParameters: '{"commands":["sudo amazon-linux-extras install -y nginx1","sudo service nginx start","sudo rm /usr/share/nginx/html/index.html"]}'
+      documentParameters: '{"commands":["curl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"","unzip awscliv2.zip","aws s3 cp s3://nucodedeplytestapplication/Index2.html /usr/share/nginx/html/"]}'
       
