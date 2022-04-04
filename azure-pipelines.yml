@@ -25,7 +25,8 @@ jobs:
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
-      documentParameters: '{"commands":["md - task: S3Download@1
+      documentParameters: '{"commands":["md C:\\WEB"]}'
+      
  - task: S3Download@1
    inputs:
      regionName: 'us-east-1'
