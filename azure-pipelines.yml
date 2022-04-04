@@ -21,6 +21,6 @@ jobs:
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
-      serviceRoleARN: 'NeedtoChange'
+      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'Idiiid-needto change'
