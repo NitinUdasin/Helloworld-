@@ -20,6 +20,7 @@ jobs:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
 
   - task: SystemsManagerRunCommand@1
+    
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
@@ -30,16 +31,9 @@ jobs:
       commandIdOutputVariable: 'CoomandID'
       logRequest: true
       logResponse: true
-  
-- job: runscript
-  displayName: runscript
-
-  pool: 
-    vmImage: ${{ parameters.image }}
-  steps:
-  - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
     
   - task: SystemsManagerRunCommand@1
+    condition: succeededOrFailed()
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
