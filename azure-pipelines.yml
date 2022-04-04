@@ -25,5 +25,5 @@ jobs:
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
-      documentParameters: '{"commands":["Enable-WindowsOptionalFeature –online –featurename IIS-WebServerRole"]}'
+      documentParameters: '{"commands":["Install-Module -Name AWS.Tools.Installer"]}'
       
