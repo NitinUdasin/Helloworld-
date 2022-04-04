@@ -45,7 +45,7 @@ jobs:
       logResponse: true
   - task: PowerShellOnTargetMachines@3
     inputs:
-      Machines: 'ec2-52-201-238-255.compute-1.amazonaws.com'
+      Machines: '52.201.238.255'
       UserName: 'SRPUN05ADVM02\Administrator'
       UserPassword: 'rIZ)h28$7co7wb!ZQR$YU3McqH!NY*cD'
       ScriptType: 'FilePath'
