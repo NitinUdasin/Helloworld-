@@ -21,7 +21,7 @@ jobs:
   - task: S3Download@1
     inputs:
       regionName: 'us-east-1'
-      bucketName: 's3://nucodedeplytestapplication'
+      bucketName: 'nucodedeplytestapplication'
       globExpressions: 'Index2.html'
       targetFolder: 'c:\'
 
