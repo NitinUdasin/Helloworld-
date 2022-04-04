@@ -25,5 +25,5 @@ jobs:
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-018f5a57a80b12dbf'
-      documentParameters: '{"echo": "Hello"}'
+      documentParameters: 'commnads:[{"echo": "Hello"}]'
       
