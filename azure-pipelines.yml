@@ -18,6 +18,14 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
+  - task: S3Download@1
+    inputs:
+      regionName: 'us-east-1'
+      bucketName: 's3://nucodedeplytestapplication'
+      globExpressions: 'Index2.html'
+      targetFolder: 'c:\'
+
+
   - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
@@ -26,4 +34,12 @@ jobs:
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       documentParameters: '{"commands":["md C:\\WEB"]}'
+  - task: SystemsManagerRunCommand@1
+    inputs:
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunRemoteScript'
+      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-0f9b9ebd2bd80c22a'
+      documentParameters: '{"commands":["{"path": "https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1"}"]}'
 
