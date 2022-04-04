@@ -34,12 +34,7 @@ jobs:
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       documentParameters: '{"commands":["md C:\\WEB"]}'
-  - task: SystemsManagerRunCommand@1
+  - task: PowerShell@2
     inputs:
-      regionName: 'us-east-1'
-      documentName: 'AWS-RunRemoteScript'
-      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
-      instanceSelector: 'fromInstanceIds'
-      instanceIds: 'i-0f9b9ebd2bd80c22a'
-      documentParameters: '{"commands":["https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1"]}'
+      filePath: 'c:\\web\test.ps1'
 
