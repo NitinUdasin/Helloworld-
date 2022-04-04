@@ -18,16 +18,31 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
-  
+
   - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
-      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh", "bash CreatedIndex.sh"]}'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh"]}'
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-018f5a57a80b12dbf'
-      notificationEvents: 'success'
-      notificationType: 'command'
+      commandIdOutputVariable: 'CoomandID'
       logRequest: true
       logResponse: true
+  
+  - task: ManualValidation@0
+    inputs:
+      notifyUsers: 'nitin.udasin@gmail.com'
+    
+  - task: SystemsManagerRunCommand@1
+    inputs:
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunShellScript'
+      documentParameters: '{"commands":["bash CreatedIndex.sh"]}'
+      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-018f5a57a80b12dbf'
+      commandIdOutputVariable: 'CoomandID'
+      logRequest: true
+      logResponse: true     
