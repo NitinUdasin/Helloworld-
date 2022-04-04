@@ -18,31 +18,7 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
-  - task: S3Download@1
-    inputs:
-      regionName: 'us-east-1'
-      bucketName: 'nucodedeplytestapplication'
-      globExpressions: 'Index2.html'
-      targetFolder: 'c:\'
-
-
-  - task: SystemsManagerRunCommand@1
-    inputs:
-      regionName: 'us-east-1'
-      documentName: 'AWS-RunPowerShellScript'
-      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
-      instanceSelector: 'fromInstanceIds'
-      instanceIds: 'i-0f9b9ebd2bd80c22a'
-      documentParameters: '{"commands":["md C:\\WEB"]}'
-  - task: SystemsManagerRunCommand@1
-    inputs:
-      regionName: 'us-east-1'
-      documentName: 'AWS-RunPowerShellScript'
-      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
-      instanceSelector: 'fromInstanceIds'
-      instanceIds: 'i-0f9b9ebd2bd80c22a'
-      logRequest: true
-      logResponse: true
+  
   - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
