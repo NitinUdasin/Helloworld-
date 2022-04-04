@@ -41,5 +41,5 @@ jobs:
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
-      documentParameters: '{"commands":["{"path": "https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1"}"]}'
+      documentParameters: '{"commands":["https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1"]}'
 
