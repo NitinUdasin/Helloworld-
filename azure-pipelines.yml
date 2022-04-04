@@ -17,3 +17,10 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
+  - task: SystemsManagerRunCommand@1
+    inputs:
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunShellScript'
+      serviceRoleARN: 'NeedtoChange'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'Idiiid-needto change'
