@@ -23,4 +23,4 @@ jobs:
       documentName: 'AWS-RunShellScript'
       serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
       instanceSelector: 'fromInstanceIds'
-      instanceIds: 'Idiiid-needto change'
+      instanceIds: 'i-018f5a57a80b12dbf'
