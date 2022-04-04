@@ -31,9 +31,13 @@ jobs:
       logRequest: true
       logResponse: true
   
-  - task: ManualValidation@0
-    inputs:
-      notifyUsers: 'nitin.udasin@gmail.com'
+- job: runscript
+  displayName: runscript
+
+  pool: 
+    vmImage: ${{ parameters.image }}
+  steps:
+  - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
     
   - task: SystemsManagerRunCommand@1
     inputs:
