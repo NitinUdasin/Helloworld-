@@ -22,8 +22,8 @@ jobs:
   - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
-      documentName: 'AWS-RunShellScript'
-      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
+      documentName: 'AWS-RunPowerShellScript'
+      documentParameters: '{"commands":["exit","aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       logRequest: true
