@@ -18,12 +18,18 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
-    
-  - task: AWSCLI@1
+
+  - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
-      awsCommand: 'aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web'
-      failOnStandardError: true
+      documentName: 'AWS-RunPowerShellScript'
+      documentParameters: '{"commands":["CMD aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-0f9b9ebd2bd80c22a'
+      outputS3BucketName: 'nucodedeplytestapplication'
+      outputS3KeyPrefix: 'cmdlogs_'
+      logRequest: true
+      logResponse: true      
   - task: SystemsManagerRunCommand@1
     inputs:
       regionName: 'us-east-1'
