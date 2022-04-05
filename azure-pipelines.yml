@@ -23,7 +23,7 @@ jobs:
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunPowerShellScript'
-      documentParameters: '{"commands":["C:\\Program Files\\Amazon\\AWSCLI\\bin\\aws.exe s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
       instanceSelector: 'fromInstanceIds'
       instanceIds: 'i-0f9b9ebd2bd80c22a'
       outputS3BucketName: 'nucodedeplytestapplication'
