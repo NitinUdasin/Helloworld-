@@ -30,5 +30,17 @@ jobs:
       outputS3KeyPrefix: 'cmdlogs_'
       logRequest: true
       logResponse: true
+  - task: SystemsManagerRunCommand@1
+    inputs:
+      regionName: 'us-east-1'
+      documentName: 'AWS-RunPowerShellScript'
+      documentParameters: '{"commands":["cd c:\\Web",".\test.ps1"]}'
+      instanceSelector: 'fromInstanceIds'
+      instanceIds: 'i-0f9b9ebd2bd80c22a'
+      outputS3BucketName: 'nucodedeplytestapplication'
+      outputS3KeyPrefix: 'cmdlogs_'
+      logRequest: true
+      logResponse: true
+  
     
     
