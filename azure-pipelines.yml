@@ -20,15 +20,12 @@ jobs:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
 
   - task: SystemsManagerRunCommand@1
-    
     inputs:
       regionName: 'us-east-1'
       documentName: 'AWS-RunShellScript'
-      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip /home/ec2-user/temp.zip","aws s3 cp s3://nucodedeplytestapplication/CreatedIndex.sh /home/ec2-user/CreatedIndex.sh","bash /home/ec2-user/CreatedIndex.sh"]}'
-      serviceRoleARN: 'arn:aws:iam::486077440167:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM'
+      documentParameters: '{"commands":["aws s3 cp s3://nucodedeplytestapplication/azure-pipelines55.zip C:\\Web"]}'
       instanceSelector: 'fromInstanceIds'
-      instanceIds: 'i-018f5a57a80b12dbf'
-      commandIdOutputVariable: 'CoomandID'
+      instanceIds: 'i-0f9b9ebd2bd80c22a'
       logRequest: true
       logResponse: true
     
